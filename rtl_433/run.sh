@@ -120,7 +120,7 @@ do
 
     source /tmp/rtl_433_heredoc
 
-    echo "Starting rtl_433 with $live..."
+    echo "Starting rtl_433_forked with $live..."
     tag=$(basename $live .conf)
     rtl_433 -c "$live" > >(sed -u "s/^/[$tag] /") 2> >(>&2 sed -u "s/^/[$tag] /")&
     rtl_433_pids+=($!)
